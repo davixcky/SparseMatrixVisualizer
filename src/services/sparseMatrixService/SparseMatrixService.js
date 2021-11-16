@@ -1,9 +1,11 @@
 import LinkedList from "./LinkedList";
 import DoublyLinkedList from "./DoublyLinkedList";
+import MultiLinkedList from "./MultiLinkedlList";
 
 const LIST_TYPE = {
     SINGLE_LINKED_LIST: 'simple-list',
     DOUBLY_LINKED_LIST: 'doubly-list',
+    MULTI_LINKED_LIST: 'multi-list',
 }
 
 class SparseMatrixService {
@@ -11,10 +13,12 @@ class SparseMatrixService {
         this.currentData = {};
         this.listImpl = new LinkedList();
         this.doublyImpl = new DoublyLinkedList();
+        this.multiImpl = new MultiLinkedList();
 
         this.MAP_LIST_STYLE = {
             [LIST_TYPE.SINGLE_LINKED_LIST]: this.listImpl,
             [LIST_TYPE.DOUBLY_LINKED_LIST]: this.doublyImpl,
+            [LIST_TYPE.MULTI_LINKED_LIST]: this.multiImpl,
         };
     }
 
@@ -25,7 +29,7 @@ class SparseMatrixService {
     generateListByStyle(style) {
         const list = this.MAP_LIST_STYLE[style] || this.listImpl;
 
-        list.generateFromMatrix([[1, 2], [3, 0], [0, 0], [5, 0], [6, 7], [0, 8], [0, 0], [0, 0]]);
+        list.generateFromMatrix([[1, 0, 4], [5, 6, 7], [0, 0, 0], [3, 4, 5]]);
 
         console.log(list.toMatrix())
     }
