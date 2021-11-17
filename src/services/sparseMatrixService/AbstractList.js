@@ -47,7 +47,7 @@ class AbstractList {
     }
 
     isValidListOfList(matrix) {
-        return Array.isArray(matrix) && matrix.every((list) => Array.isArray(list));
+        return Array.isArray(matrix) && (matrix.every((list) => Array.isArray(list)) || matrix.length === 0);
     }
 
     isSameNumberOfRows(matrix) {

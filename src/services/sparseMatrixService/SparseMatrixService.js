@@ -10,11 +10,12 @@ const LIST_TYPE = {
 
 class SparseMatrixService {
     constructor() {
-        this.currentData = {};
+        this.currentData = [];
         this.listImpl = new LinkedList();
         this.doublyImpl = new DoublyLinkedList();
         this.multiImpl = new MultiLinkedList();
 
+        this.currentList = undefined;
         this.MAP_LIST_STYLE = {
             [LIST_TYPE.SINGLE_LINKED_LIST]: this.listImpl,
             [LIST_TYPE.DOUBLY_LINKED_LIST]: this.doublyImpl,
@@ -27,11 +28,12 @@ class SparseMatrixService {
     }
 
     generateListByStyle(style) {
-        const list = this.MAP_LIST_STYLE[style] || this.listImpl;
+        if (this.currentData.length === 0) return;
 
-        list.generateFromMatrix([[1, 0, 4], [5, 6, 7], [0, 0, 0], [3, 4, 5]]);
+        this.currentList = this.MAP_LIST_STYLE[style] || this.listImpl;
 
-        console.log(list.toMatrix())
+        const data = this.currentData;
+        this.currentList.generateFromMatrix(data);
     }
 }
 

@@ -22,6 +22,9 @@ class LinkedList extends AbstractList {
     generateFromMatrix(matrix) {
         super.generateFromMatrix(matrix);
 
+        if (matrix.length === 0)
+            return;
+
         this.numberRows = matrix.length;
         this.numberColumns = matrix[0].length;
 
@@ -43,6 +46,8 @@ class LinkedList extends AbstractList {
                 this.lastNode = newNode;
             });
         });
+
+        return this;
     }
 
     toMatrix() {

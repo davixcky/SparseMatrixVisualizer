@@ -21,6 +21,9 @@ class MultiLinkedList extends AbstractList {
     generateFromMatrix(matrix) {
         super.generateFromMatrix(matrix);
 
+        if (matrix.length === 0)
+            return;
+
         this.numberRows = matrix.length;
         this.numberColumns = matrix[0].length;
 
