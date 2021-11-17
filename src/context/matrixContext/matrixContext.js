@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {LIST_TYPE} from "../../services/sparseMatrixService";
 import {fileToArrayNumber} from "../../utils";
 import SparseMatrixService from "../../services/sparseMatrixService/SparseMatrixService";
-import {useToast} from "@chakra-ui/react";
+import {list, useToast} from "@chakra-ui/react";
 
 const SparseMatrixContext = createContext();
 
@@ -18,7 +18,7 @@ const SparseMatrixProvider = ({children}) => {
     const toast = useToast();
 
     useEffect(() => {
-        if (error.message && !isErrorDisplayed){
+        if (error.message && !isErrorDisplayed) {
             launchToast(error.message);
             setIsErrorDisplayed(true);
         }
@@ -48,6 +48,14 @@ const SparseMatrixProvider = ({children}) => {
             setIsErrorDisplayed(false);
         }
         setCurrentList(sparseMatrixService.currentList);
+
+        if (listMethod === LIST_TYPE.MULTI_LINKED_LIST) {
+            try {
+                console.log(sparseMatrixService.multiImpl.toMatrix());
+            } catch (e) {
+                console.log(e);
+            }
+        }
     }, [matrixData, listMethod, sparseMatrixService.currentList]);
 
     const onFileChanged = (e) => {
