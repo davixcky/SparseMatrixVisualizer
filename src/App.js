@@ -1,10 +1,10 @@
 import {useSparseMatrixContext} from "./context/matrixContext";
-import {FileReader, ListMethod, MatrixTable} from "./components";
+import {FileReader, InformationArea, ListMethod, MatrixTable} from "./components";
 import {
     Box,
     Flex,
     Heading,
-    IconButton,
+    IconButton, Kbd,
     Link,
     Spinner,
     Text,
@@ -29,6 +29,21 @@ function App() {
                 <ThemeSelector/>
                 <Box p={4}>
                     <ConfigurationHeader/>
+                    <InformationArea>
+                        <Text>
+                            The file must have an <Kbd>uninorte</Kbd> extension. Each line defines a row and therefore
+                            each
+                            column is separated by a space. The number of columns must match between all the rows and
+                            their elements must be numbered, otherwise, it will result in an error. If the document
+                            presents an error, the system will return a message indicating what happened. You can find
+                            some file examples
+                            {" "}
+                            <Link color="teal.500"
+                                  href="https://github.com/davixcky/SparseMatrixVisualizer/tree/master/example_files"
+                                  target='blank'>
+                                here
+                            </Link>.
+                        </Text> </InformationArea>
                     <FileReader/>
                     {isLoading && <Spinner size="xl" mt={12}/>}
                 </Box>
