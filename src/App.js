@@ -1,4 +1,3 @@
-import {useEffect} from "react";
 import {useSparseMatrixContext} from "./context/matrixContext";
 import {FileReader, ListMethod, MatrixTable} from "./components";
 import {
@@ -18,8 +17,6 @@ function App() {
 
     const {isLoading} = useSparseMatrixContext();
 
-    useEffect(() => console.log(isLoading), [isLoading]);
-
     return (
         <Flex className={styles.container}>
             <Box
@@ -37,7 +34,7 @@ function App() {
                 </Box>
                 <Box borderRadius={10} minH='60%'>
                     <ListMethod/>
-                    <MatrixTable />
+                    <MatrixTable/>
                 </Box>
             </Box>
         </Flex>
