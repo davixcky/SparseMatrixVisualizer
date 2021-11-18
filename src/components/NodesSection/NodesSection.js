@@ -1,12 +1,14 @@
 import { useSparseMatrixContext } from '../../context/matrixContext';
-import ReactFlow, { Background, Controls, MiniMap } from 'react-flow-renderer';
+import ReactFlow, { Controls, MiniMap } from 'react-flow-renderer';
 import { useEffect, useState } from 'react';
 import { SinglyLinkedListNode, DoublyLinkedListNode, MultiLinkedListNode } from './Nodes';
 import { LIST_TYPE } from '../../services/sparseMatrixService';
+import { FullGraphTree } from '../FullGraphTree';
 
 const NodesSection = () => {
     const { currentList, listMethod } = useSparseMatrixContext();
     const [elements, setElements] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         generateTree();
@@ -204,15 +206,26 @@ const NodesSection = () => {
         reactFlowInstance.fitView();
     };
 
-    return (
-        <ReactFlow elements={elements} onLoad={onLoad} nodeTypes={nodeTypes}>
-            <MiniMap
-                nodeColor={'red'}
-                nodeStrokeWidth={3}
-            />
-            <Controls />
+    const onClose = () => {
+        setIsOpen(false);
+    };
 
-        </ReactFlow>
+    const onFullView = () => {
+        setIsOpen((prev) => !prev);
+    };
+
+    return (
+        <>
+            <ReactFlow elements={elements} onLoad={onLoad} nodeTypes={nodeTypes}>
+                <MiniMap
+                    nodeColor={'red'}
+                    nodeStrokeWidth={3}
+                />
+                <Controls onFitView={onFullView} />
+            </ReactFlow>
+            <FullGraphTree onClose={onClose} isOpen={isOpen} />
+        </>
+
     );
 };
 

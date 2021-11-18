@@ -1,6 +1,16 @@
 import { useSparseMatrixContext } from './context/matrixContext';
 import { FileReader, InformationArea, ListMethod, MatrixTable, NodesSection } from './components';
-import { Box, Heading, IconButton, Kbd, Link, Spinner, Text, useColorMode, VStack } from '@chakra-ui/react';
+import {
+    Box,
+    Heading,
+    IconButton,
+    Kbd,
+    Link,
+    Spinner,
+    Text,
+    useColorMode,
+    VStack
+} from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import styles from './App.module.css';
 
