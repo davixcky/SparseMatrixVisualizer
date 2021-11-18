@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { LIST_TYPE } from '../../services/sparseMatrixService';
 import { fileToArrayNumber } from '../../utils';
 import SparseMatrixService from '../../services/sparseMatrixService/SparseMatrixService';
-import { list, useToast } from '@chakra-ui/react';
+import { useToast } from '@chakra-ui/react';
 
 const SparseMatrixContext = createContext();
 
@@ -32,7 +32,7 @@ const SparseMatrixProvider = ({ children }) => {
             duration: 5000,
             isClosable: true,
             position: 'top',
-            variant: 'solid',
+            variant: 'solid'
         });
     };
 
@@ -96,7 +96,7 @@ const SparseMatrixProvider = ({ children }) => {
                 currentList,
                 error,
                 onFileChanged,
-                onListMethodChange,
+                onListMethodChange
             }}
         >
             {children}
@@ -105,7 +105,7 @@ const SparseMatrixProvider = ({ children }) => {
 };
 
 SparseMatrixProvider.propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.node
 };
 
 const useSparseMatrixContext = () => {
