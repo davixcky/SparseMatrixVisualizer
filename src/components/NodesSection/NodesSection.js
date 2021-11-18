@@ -1,5 +1,5 @@
 import { useSparseMatrixContext } from '../../context/matrixContext';
-import ReactFlow from 'react-flow-renderer';
+import ReactFlow, { Background, Controls, MiniMap } from 'react-flow-renderer';
 import { useEffect, useState } from 'react';
 import { SinglyLinkedListNode, DoublyLinkedListNode, MultiLinkedListNode } from './Nodes';
 import { LIST_TYPE } from '../../services/sparseMatrixService';
@@ -205,7 +205,14 @@ const NodesSection = () => {
     };
 
     return (
-        <ReactFlow elements={elements} onLoad={onLoad} nodeTypes={nodeTypes} />
+        <ReactFlow elements={elements} onLoad={onLoad} nodeTypes={nodeTypes}>
+            <MiniMap
+                nodeColor={'red'}
+                nodeStrokeWidth={3}
+            />
+            <Controls />
+
+        </ReactFlow>
     );
 };
 
