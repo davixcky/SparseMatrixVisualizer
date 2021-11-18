@@ -13,11 +13,11 @@ class AbstractList {
         }
 
         if (!this.isValidListOfList(matrix)) {
-            throw new TypeError("Matrix should be a list of arrays.");
+            throw new TypeError('Matrix should be a list of arrays.');
         }
 
         if (!this.isSameNumberOfRows(matrix)) {
-            throw new TypeError("Matrix rows should have the same length.");
+            throw new TypeError('Matrix rows should have the same length.');
         }
 
         this.head = null;
@@ -29,13 +29,13 @@ class AbstractList {
         }
     }
 
-    getLastNode({nextType = 'next'} = {}) {
+    getLastNode({ nextType = 'next' } = {}) {
         if (!(this instanceof AbstractList)) {
             throw new Error("Method 'getLastNode()' must be implemented.");
         }
 
         if (!(typeof nextType === 'string')) {
-            throw new TypeError("nextType should be a string.");
+            throw new TypeError('nextType should be a string.');
         }
 
         let current = this.head;

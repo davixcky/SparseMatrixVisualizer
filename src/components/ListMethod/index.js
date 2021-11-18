@@ -1,1 +1,1 @@
-export {ListMethod} from './ListMethod';
+export { ListMethod } from './ListMethod';

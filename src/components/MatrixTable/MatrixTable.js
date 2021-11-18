@@ -1,11 +1,10 @@
-import {Table, Tbody, Td, Tr} from "@chakra-ui/react";
-import {useEffect} from "react";
-import {useSparseMatrixContext} from "../../context/matrixContext";
-import {LIST_TYPE} from "../../services/sparseMatrixService";
+import { Table, Tbody, Td, Tr } from '@chakra-ui/react';
+import { useEffect } from 'react';
+import { useSparseMatrixContext } from '../../context/matrixContext';
+import { LIST_TYPE } from '../../services/sparseMatrixService';
 
 const MatrixTable = () => {
-
-    const {currentList, listMethod} = useSparseMatrixContext();
+    const { currentList, listMethod } = useSparseMatrixContext();
 
     useEffect(() => {
         generateLinkedList(currentList);
@@ -39,7 +38,7 @@ const MatrixTable = () => {
 
     const generateSinglyLinkedList = (list) => {
         return generateLinkedList(list);
-    }
+    };
 
     const generateDoublyLinkedList = (list) => {
         return generateLinkedList(list);
@@ -57,15 +56,13 @@ const MatrixTable = () => {
             [LIST_TYPE.MULTI_LINKED_LIST]: generateMultiLinkedList,
         };
 
-        const func =  METHODS_IMPL[listMethod] || METHODS_IMPL[LIST_TYPE.SINGLE_LINKED_LIST];
+        const func = METHODS_IMPL[listMethod] || METHODS_IMPL[LIST_TYPE.SINGLE_LINKED_LIST];
         return func(currentList);
     };
 
     return (
         <Table size="sm">
-            <Tbody>
-                {generateListData(currentList)}
-            </Tbody>
+            <Tbody>{generateListData(currentList)}</Tbody>
         </Table>
     );
 };

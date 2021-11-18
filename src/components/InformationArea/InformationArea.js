@@ -1,12 +1,12 @@
-import {Alert, AlertIcon} from "@chakra-ui/react";
+import { Alert, AlertIcon } from '@chakra-ui/react';
 
-const InformationArea = ({children}) => {
+const InformationArea = ({ children }) => {
     return (
         <Alert status="info" marginBlock={5}>
-            <AlertIcon/>
+            <AlertIcon />
             {children}
         </Alert>
     );
 };
 
-export {InformationArea};
+export { InformationArea };

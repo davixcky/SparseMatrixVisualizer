@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {ChakraProvider} from "@chakra-ui/react";
-import {SparseMatrixProvider} from "./context/matrixContext";
+import { ChakraProvider } from '@chakra-ui/react';
+import { SparseMatrixProvider } from './context/matrixContext';
 
 ReactDOM.render(
     <React.StrictMode>
         <ChakraProvider>
             <SparseMatrixProvider>
-                <App/>
+                <App />
             </SparseMatrixProvider>
         </ChakraProvider>
     </React.StrictMode>,

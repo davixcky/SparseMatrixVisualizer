@@ -1,9 +1,9 @@
-import AbstractList from "./AbstractList";
+import AbstractList from './AbstractList';
 import AbstractNode from './AbstractNode';
 
 class Node extends AbstractNode {
     constructor(value) {
-        super(value)
+        super(value);
         this.right = null;
         this.down = null;
     }
@@ -21,8 +21,7 @@ class MultiLinkedList extends AbstractList {
     generateFromMatrix(matrix) {
         super.generateFromMatrix(matrix);
 
-        if (matrix.length === 0)
-            return;
+        if (matrix.length === 0) return;
 
         this.numberRows = matrix.length;
         this.numberColumns = matrix[0].length;
@@ -49,10 +48,10 @@ class MultiLinkedList extends AbstractList {
 
                 rightPtr = newNode;
             });
-
         });
 
-        let current, nextNode;
+        let current;
+        let nextNode;
         for (let i = 0; i < this.numberRows; i++) {
             current = heads[i];
             nextNode = heads[i + 1];
@@ -70,7 +69,7 @@ class MultiLinkedList extends AbstractList {
     toMatrix() {
         super.toMatrix();
 
-        let matrix = [];
+        const matrix = [];
         let currentNode = this.head;
 
         if (!currentNode) {

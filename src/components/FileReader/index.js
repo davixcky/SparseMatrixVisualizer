@@ -1,1 +1,1 @@
-export {FileReader} from './FileReader';
+export { FileReader } from './FileReader';

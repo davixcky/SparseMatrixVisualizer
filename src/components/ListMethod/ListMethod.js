@@ -1,13 +1,13 @@
-import {Divider, Radio, RadioGroup, Stack, Text} from "@chakra-ui/react";
-import {useSparseMatrixContext} from "../../context/matrixContext";
-import {LIST_TYPE} from "../../services/sparseMatrixService";
+import { Divider, Radio, RadioGroup, Stack, Text } from '@chakra-ui/react';
+import { useSparseMatrixContext } from '../../context/matrixContext';
+import { LIST_TYPE } from '../../services/sparseMatrixService';
 
 const ListMethod = () => {
     const { onListMethodChange, listMethod, matrixData } = useSparseMatrixContext();
 
     return (
         <>
-            <Divider mb={20}/>
+            <Divider mb={20} />
             <Text>"{listMethod}" method selected</Text>
             <Text> {matrixData}</Text>
             <RadioGroup onChange={onListMethodChange} value={listMethod}>
@@ -17,9 +17,9 @@ const ListMethod = () => {
                     <Radio value={LIST_TYPE.MULTI_LINKED_LIST}>Multi Linked list</Radio>
                 </Stack>
             </RadioGroup>
-            <Divider mt={20}/>
+            <Divider mt={20} />
         </>
     );
 };
 
-export {ListMethod};
+export { ListMethod };

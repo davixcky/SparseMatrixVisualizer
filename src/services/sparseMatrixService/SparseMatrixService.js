@@ -1,12 +1,12 @@
-import LinkedList from "./LinkedList";
-import DoublyLinkedList from "./DoublyLinkedList";
-import MultiLinkedList from "./MultiLinkedlList";
+import LinkedList from './LinkedList';
+import DoublyLinkedList from './DoublyLinkedList';
+import MultiLinkedList from './MultiLinkedlList';
 
 const LIST_TYPE = {
     SINGLE_LINKED_LIST: 'simple-list',
     DOUBLY_LINKED_LIST: 'doubly-list',
     MULTI_LINKED_LIST: 'multi-list',
-}
+};
 
 class SparseMatrixService {
     constructor() {
@@ -38,4 +38,4 @@ class SparseMatrixService {
 }
 
 export default SparseMatrixService;
-export {LIST_TYPE};
+export { LIST_TYPE };

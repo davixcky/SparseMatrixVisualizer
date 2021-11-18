@@ -1,4 +1,4 @@
-import AbstractList from "./AbstractList";
+import AbstractList from './AbstractList';
 import AbstractNode from './AbstractNode';
 
 class Node extends AbstractNode {
@@ -23,8 +23,7 @@ class DoublyLinkedList extends AbstractList {
     generateFromMatrix(matrix) {
         super.generateFromMatrix(matrix);
 
-        if (matrix.length === 0)
-            return;
+        if (matrix.length === 0) return;
 
         this.numberRows = matrix.length;
         this.numberColumns = matrix[0].length;
@@ -53,7 +52,7 @@ class DoublyLinkedList extends AbstractList {
     toMatrix() {
         super.toMatrix();
 
-        let matrix = [];
+        const matrix = [];
         let currentNode = this.head;
 
         if (!currentNode) {
@@ -63,7 +62,7 @@ class DoublyLinkedList extends AbstractList {
         const index = {
             col: 0,
             row: 0,
-        }
+        };
 
         while (currentNode) {
             if (currentNode.row !== index.row || currentNode.column !== index.col) {

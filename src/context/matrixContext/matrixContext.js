@@ -1,13 +1,13 @@
-import {createContext, useContext, useEffect, useState} from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import {LIST_TYPE} from "../../services/sparseMatrixService";
-import {fileToArrayNumber} from "../../utils";
-import SparseMatrixService from "../../services/sparseMatrixService/SparseMatrixService";
-import {list, useToast} from "@chakra-ui/react";
+import { LIST_TYPE } from '../../services/sparseMatrixService';
+import { fileToArrayNumber } from '../../utils';
+import SparseMatrixService from '../../services/sparseMatrixService/SparseMatrixService';
+import { list, useToast } from '@chakra-ui/react';
 
 const SparseMatrixContext = createContext();
 
-const SparseMatrixProvider = ({children}) => {
+const SparseMatrixProvider = ({ children }) => {
     const [matrixData, setMatrixData] = useState([]);
     const [listMethod, setListMethod] = useState(LIST_TYPE.SINGLE_LINKED_LIST);
     const [isLoading, setIsLoading] = useState(false);
@@ -26,14 +26,14 @@ const SparseMatrixProvider = ({children}) => {
 
     const launchToast = (message) => {
         toast({
-            title: "Sparse Matrix",
+            title: 'Sparse Matrix',
             description: message,
-            status: "error",
+            status: 'error',
             duration: 5000,
             isClosable: true,
-            position: "top",
-            variant: "solid",
-        })
+            position: 'top',
+            variant: 'solid',
+        });
     };
 
     useEffect(() => {
@@ -68,7 +68,7 @@ const SparseMatrixProvider = ({children}) => {
         reader.onload = async (e) => {
             setError({});
 
-            const text = (e.target.result)
+            const text = e.target.result;
             let values;
             try {
                 values = fileToArrayNumber(text);
@@ -80,7 +80,7 @@ const SparseMatrixProvider = ({children}) => {
             setIsLoading(false);
         };
 
-        reader.readAsText(e.target.files[0])
+        reader.readAsText(e.target.files[0]);
     };
 
     const onListMethodChange = (value) => {
@@ -88,23 +88,25 @@ const SparseMatrixProvider = ({children}) => {
     };
 
     return (
-        <SparseMatrixContext.Provider value={{
-            matrixData,
-            isLoading,
-            listMethod,
-            currentList,
-            error,
-            onFileChanged,
-            onListMethodChange,
-        }}>
+        <SparseMatrixContext.Provider
+            value={{
+                matrixData,
+                isLoading,
+                listMethod,
+                currentList,
+                error,
+                onFileChanged,
+                onListMethodChange,
+            }}
+        >
             {children}
         </SparseMatrixContext.Provider>
-    )
-}
+    );
+};
 
 SparseMatrixProvider.propTypes = {
     children: PropTypes.node,
-}
+};
 
 const useSparseMatrixContext = () => {
     const context = useContext(SparseMatrixContext);
@@ -113,6 +115,6 @@ const useSparseMatrixContext = () => {
     }
 
     return context;
-}
+};
 
-export {SparseMatrixProvider, useSparseMatrixContext};
+export { SparseMatrixProvider, useSparseMatrixContext };
